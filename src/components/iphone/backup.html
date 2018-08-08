@@ -1,0 +1,164 @@
+// import preact
+import { h, render, Component } from 'preact';
+// import stylesheets for ipad & button
+import style from './style';
+import style_iphone from '../button/style_iphone';
+// import jquery for API calls
+import $ from 'jquery';
+// import the Button component
+import Button from '../button';
+// import the navbar component
+import Navbar from '../navbar';
+
+export default class Iphone extends Component {
+//var Iphone = React.createClass({
+
+	// a constructor with initial set states
+	constructor(props){
+		super(props);
+		// temperature state
+		this.state.temp = "";
+		// button display state
+		this.setState({ display: false });
+	}
+
+	// a call to fetch weather data via wunderground
+	/*fetchWeatherData = () => {
+		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
+		//var url = "http://api.wunderground.com/api/c5745d0a313c195d/conditions/q/UK/London.json";
+		$.ajax({//old key: c78f1a13d2ca6971
+			url: url,
+			dataType: "jsonp",
+			success : this.parseResponse,
+			error : function(req, err){ console.log('API call failed ' + err); }
+		})
+		// once the data grabbed, hide the button
+		this.setState({ display: false });
+	}*/
+
+	// the main render method for the iphone component
+	render() {
+                
+		// check if temperature data is fetched, if so add the sign styling to the page
+		const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
+		
+		// display all weather data
+		return (
+			<div class={ style.container }>
+                        <div class={ style.navbar }> 
+                        <div class = { style.navcol }> <img src="../../assets/icons/home.png" alt="not working :(" style="width:36px;height:36px;"/></div>
+                        <div class = { style.navcol }> <img src="../../assets/icons/tennis.png" alt="not working :(" style="width:36px;height:36px;"/></div>
+                        <div class = { style.navcol }> <img src="../../assets/icons/star.png" alt="not working :(" style="width:36px;height:36px;"/></div>
+                        <div class = { style.navcol }> <img src="../../assets/icons/group.png" alt="not working :(" style="width:36px;height:36px;"/></div>
+                        <div class = { style.navcol }> <img src="../../assets/icons/search.png" alt="not working :(" style="width:36px;height:36px;"/></div>
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <h1 class={ style.h69 }>London</h1>
+				
+                                     {/*<div class={ style.city }>{ this.state.locate }</div>
+					<div class={ style.conditions }>{ this.state.cond }</div>
+					<span class={ tempStyles }>{ this.state.temp }</span>*/}
+            
+                                        <div class={ style.temperature }>21<tiny>°</tiny></div>
+                                        <div class={ style.conditions }>Cloudy</div>
+                                <div class= { style.winfo }>
+                                <div class = { style.col1 }> <img src="../../assets/pictures/drop.png" alt="not working :(" style="width:30px;height:50px;"/><subtext><p>&nbsp; 69%</p></subtext></div>
+                                <div class = { style.col4 }> <img src="../../assets/pictures/whiteline2.png" alt="not working :(" style="width:5px;height:60px;"/> </div>
+                                <div class = { style.col2 }> <img src="../../assets/pictures/drop.png" alt="not working :(" style="width:30px;height:50px;"/><subtext><p>idk what to put</p></subtext></div>
+                                <div class = { style.col5 }> <img src="../../assets/pictures/whiteline2.png" alt="not working :(" style="width:5px;height:60px;"/> </div>
+                                <div class = { style.col3 }> <img src="../../assets/pictures/wind.png" alt="not working :(" style="width:50px;height:50px;"/><subtext><p>10m/s</p></subtext></div>
+                                </div>
+                                <div class= { style.borderline }> <img src="../../assets/pictures/whiteline.png" alt="not working :(" style="width:380px;height:5px;"/> </div>
+				 <subtext2> NEAREST COURTS</subtext2>
+                                <div class= { style.minfo }><img src="../../assets/pictures/maptemp.jpg" alt="not working :(" style="width:380px;height:110px;"/></div>
+                                <div class= { style.borderline2 }> <img src="../../assets/pictures/whiteline.png" alt="not working :(" style="width:300px;height:5px;"/> </div>
+                                <div class= { style.textblock }> 
+                                    <div class= { style.leftcol }> 
+                                        <p class= { style.ls }> 123 urnans yard</p>
+                                        <p class= { style.ls }>mousset road</p>
+                                    </div>
+                                    <div class= { style.rightcol }> 
+                                        <p class= { style.setleft }> 545ft</p>
+                                    </div>
+                                </div>
+                        
+                                <div class= { style.borderline2 }> <img src="../../assets/pictures/whiteline.png" alt="not working :(" style="width:300px;height:5px;"/> </div>
+                                <div class= { style.textblock }> 
+                                    <div class= { style.leftcol }> 
+                                        <p class= { style.ls }> 456 Deets place</p>
+                                        <p class= { style.ls }>Juj Street</p>
+                                    </div>
+                                    <div class= { style.rightcol }> 
+                                        <p class= { style.setleft }> 1.1m</p>
+                                    </div>
+                                </div>
+                        
+                                <div class= { style.borderline2 }> <img src="../../assets/pictures/whiteline.png" alt="not working :(" style="width:300px;height:5px;"/> </div>
+                                <div class= { style.textblock }> 
+                                    <div class= { style.leftcol }> 
+                                        <p class= { style.ls }> 789 pokemon avenue</p>
+                                        <p class= { style.ls }>KHF lane</p>
+                                    </div>
+                                    <div class= { style.rightcol }> 
+                                        <p class= { style.setleft }> 2.0m</p>
+                                    </div>
+                                </div>
+                                
+                                <div class= { style_iphone.container }>
+                               
+				</div>
+			</div>
+		);
+	}
+
+	parseResponse = (parsed_json) => {
+		var location = parsed_json['current_observation']['display_location']['city'];
+		var temp_c = parsed_json['current_observation']['temp_c'];
+		var conditions = parsed_json['current_observation']['weather'];
+
+		// set states for fields so they could be rendered later on
+		this.setState({
+			locate: location,
+			temp: temp_c,
+			cond : conditions
+		});      
+	}
+}
